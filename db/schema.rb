@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_224009) do
   end
 
   create_table "shelves", force: :cascade do |t|
-    t.string "user_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,4 +40,5 @@ ActiveRecord::Schema.define(version: 2019_11_11_224009) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 end
