@@ -9,7 +9,7 @@ class Book < ApplicationRecord
     def potential_swappers
         self.shelfs.map do |shelf|
             shelf.user
-        end.uniq {|user| user.email}
+        end.reject { |item| item.nil? }
     end
 
     def self.create_from_googlebooks(query)

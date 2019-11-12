@@ -4,8 +4,13 @@
 <p>Description: <%= @book.description %></p>
 <br>
 <h3>Others Who Can Swap This:</h3>
+
+<% if @book.potential_swappers.empty? %>
+<p>Looks like no one is can swap this</p>
+<% else %>
 <ul>
 <% @book.potential_swappers.each do |swapper| %>
     <li><%= link_to swapper.name, swapper %></li>
 <% end %>
 </ul>
+<% end %>
