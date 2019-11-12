@@ -22,6 +22,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Added Gems outside Rails initialization
+gem 'googlebooks'
+
+gem 'faker', '~> 1.6', '>= 1.6.6'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

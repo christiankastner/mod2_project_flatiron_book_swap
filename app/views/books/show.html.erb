@@ -1,0 +1,11 @@
+<h1><%= @book.title %></h1>
+<p>Author: <%= @book.author %></p>
+<img style="max-height: 1000px; max-width: 1000px;" src="<%= @book.image_link %>" alt="<%= @book.title %>" ><br>
+<p>Description: <%= @book.description %></p>
+<br>
+<h3>Others Who Can Swap This:</h3>
+<ul>
+<% @book.potential_swappers.each do |swapper| %>
+    <li><%= link_to swapper.name, swapper %></li>
+<% end %>
+</ul>
