@@ -4,6 +4,7 @@
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag "Search" %>
 <% end %>
+
 <ul>
 <h3>Avaliable Books to Borrow</h3>
 <% @books.each do |book| %>

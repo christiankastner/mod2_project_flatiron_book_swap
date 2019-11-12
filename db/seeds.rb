@@ -23,8 +23,8 @@ def seed_users
     (1..10).each do 
         @user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
         @shelf = Shelf.create(user_id: @user.id)
-        (1..rand(20)).each do
-            ShelfBook.create(shelf_id: @shelf.id, book_id: Book.all.sample.id)
+        (1..rand(20, 30)).each do
+            ShelfBook.create(shelf_id: @shelf.id, book_id: Book.all.sample.id, shelf_type: rand(2))
         end
     end
 end
