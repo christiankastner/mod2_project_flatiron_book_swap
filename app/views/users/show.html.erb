@@ -1,6 +1,16 @@
 <h1><%= @user.name %></h1>
 <p>Email: <%= @user.email %></p>
 <br>
+<h3>Desired Books:</h3>
 <ul>
-<%  %>
+<% @user.desired_shelf.each do |book| %>
+<li><%= link_to book.title, book %></li>
+<% end %>
+</ul>
+
+<h3>Swap Shelf:</h3>
+<ul>
+<% @user.public_shelf.each do |book| %>
+<li><%= link_to book.title, book %></li>
+<% end %>
 </ul>

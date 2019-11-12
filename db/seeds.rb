@@ -18,13 +18,14 @@ def seed_books
 end
 
 def seed_users
-    User.delete_all
+    User.destroy_all
+    Shelf.destroy_all
 
     (1..10).each do 
         @user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
         @shelf = Shelf.create(user_id: @user.id)
         (1..rand(30)).each do
-            ShelfBook.create(shelf_id: @shelf.id, book_id: Book.all.sample.id, shelf_type: rand(2))
+            ShelfBook.create(shelf_id: @shelf.id, book_id: Book.all.sample.id, shelf_type: rand(3))
         end
     end
 end
