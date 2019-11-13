@@ -10,6 +10,12 @@
   </head>
 
   <body>
+  <% if session[:user_id] %>
+  <p>Logged in as: <%= User.find(session[:user_id]).name %> <%= button_to "Log out", logout_path %></p>
+
+  <% else %>
+  <p><%= button_to "Log in", login_path, method: :get %></p>
+  <% end %>
     <%= yield %>
   </body>
 </html>
