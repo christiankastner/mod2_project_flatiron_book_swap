@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Added Gems outside Rails initialization
 gem 'googlebooks'
+gem 'pry'
 
 gem 'faker', '~> 1.6', '>= 1.6.6'
 

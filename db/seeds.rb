@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+
 def seed_books
     Book.delete_all
 
@@ -31,8 +32,11 @@ def seed_users
     end
 end
 
-seed_users
+# helen = User.find_by(email: "santino@grady.net")
+# rod = User.find_by(name: "Rod Runolfsdottir")
+# mice = Book.find(81)
+# orwell = Book.find(64)
 
-
+# helen.swap_book(orwell, rod, mice)
 
 

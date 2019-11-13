@@ -27,9 +27,10 @@
     <li><%= link_to book.title, book %> </li>
     <% if @is_current_user %>
     <ul>
-        <li>Wanna steal their book?</li>
+        <li>Wanna steal their book and give one of yours?</li>
         <li>
         <%= form_tag shelves_books_path do %>
+            <%= collection_select :book, :book_id, @user.public_shelf, :id, :title %>
             <%= hidden_field :shelf_book, :book_id, value: @book.id %>
             <%= hidden_field :shelf_book, :shelf_type, value: 2 %>
             <%= submit_tag "STEAL IT" %>
