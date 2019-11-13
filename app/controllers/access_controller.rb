@@ -12,6 +12,4 @@ class AccessController < ApplicationController
 
     def logout
     end
-
-        
 end
