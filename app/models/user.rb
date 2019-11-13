@@ -24,4 +24,27 @@ class User < ApplicationRecord
         end
     end
 
+    # Takes in book classes and user class
+    def swap_book(your_book, other_user, their_book)
+        if public_shelf.include? book
+            your_shelf_book = ShelfBook.all.detect do |shelf_book| 
+                shelf_id == self.shelf.id and book_id == your_book.id
+            end
+
+            your_shelf_book.shelf_id = other_user.shelf.id
+            your_shelf_book.shelf_type = 1
+            your_shelf_book.save
+
+            their_shelf_book = ShelfBook.all.detect do |shelf_book| 
+                shelf_id == other_user.shelf.id and book_id == your_book.id
+            end
+
+            their_shelf_book.shelf_id = self.shelf.id
+            their_shelf_book.shelf_type = 1
+            their_shelf_book.save
+
+        else
+            nil
+        end
+    end
 end

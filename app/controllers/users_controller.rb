@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     before_action :check_current_user, only: [:show]
 
     def index
+        @users = User.all
     end
 
     def show
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
             render :new
         end
     end
-
 
     private
     def supply_user

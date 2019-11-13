@@ -24,6 +24,18 @@
 <h3>Swap Shelf:</h3>
 <ul>
 <% @user.public_shelf.each do |book| %>
-<li><%= link_to book.title, book %> </li>
+    <li><%= link_to book.title, book %> </li>
+    <% if @is_current_user %>
+    <ul>
+        <li>Wanna steal their book?</li>
+        <li>
+        <%= form_tag shelves_books_path do %>
+            <%= hidden_field :shelf_book, :book_id, value: @book.id %>
+            <%= hidden_field :shelf_book, :shelf_type, value: 2 %>
+            <%= submit_tag "STEAL IT" %>
+        <% end %> 
+        </li>
+    </ul>
+    <% end %>
 <% end %>
 </ul>
