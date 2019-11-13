@@ -3,6 +3,7 @@ class AccessController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user and @user.authenticate(params[:password])
             session[:user_id] = @user.id
+            session[:shelf_id] = @user.shelf.id
             redirect_to root_path
         else
             flash[:message] = "Username or password did not match an existing profile"

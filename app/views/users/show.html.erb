@@ -15,7 +15,7 @@
 <% if @is_current_user %>
     <h3>My Private Books:</h3>
     <ul>
-        <% @user.desired_shelf.each do |book| %>
+        <% @user.private_shelf.each do |book| %>
             <li><%= link_to book.title, book %></li>
         <% end %>
     </ul>
