@@ -3,11 +3,11 @@
 <%= f.label :username %>
 <%= f.text_field :username %>
 <br>
-<%= f.label :password_digest %>
-<%= f.text_field :password_digest %>
+<label>Password </label>
+<%= f.text_field :password %>
 <br>
 <%= f.submit "Log in" %>
 <% end %>
 
 <h3>Don't have a profile?</h3>
-<p><%= link_to "Create One", new_user_path %></p>
+<p><%= button_to "Create One", new_user_path, method: :get %></p>
