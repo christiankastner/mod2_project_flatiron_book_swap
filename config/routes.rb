@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'static#landing'
   resources :books, only: [:index, :show]
-  resources :users do
-    resources :shelves, only: [:show]
-  end
+  resources :users 
+  resources :shelves, only: [:show, :edit, :create]
   get '/login', to: 'access#login'
   post 'login/authenticate', to: 'access#create'
   post 'logout', to: 'access#logout'

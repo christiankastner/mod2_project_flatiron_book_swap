@@ -4,9 +4,13 @@
 <p>Description: <%= @book.description %></p>
 <br>
 
-<h3>Add this to my shelf:</h3>
-<% form_tag  %>
-<p><%= button_to %></p>
+<% if session[:user_id] %>
+    <h3>Add this to my shelf:</h3>
+    <%= form_tag "/users/#{session[:user_id]}/shelves" %>
+    <%=  %>
+<% else %>
+    <h3>Sign in to add this to your shelf!</h3>
+<% end %>
 
 <h3>Others Who Can Swap This:</h3>
 
