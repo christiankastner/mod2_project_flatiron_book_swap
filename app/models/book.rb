@@ -7,11 +7,13 @@ class Book < ApplicationRecord
     # end
 
     def potential_swappers
+        swappers = []
         self.shelf_books.each do |shelf_book|
             if shelf_book.shelf_type == 2 
-                
+                swappers << shelf_book.shelf.user
             end
         end
+        swappers
     end
 
     def self.create_from_googlebooks(query)

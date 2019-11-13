@@ -3,14 +3,19 @@
 <img style="max-height: 1000px; max-width: 1000px;" src="<%= @book.image_link %>" alt="<%= @book.title %>" ><br>
 <p>Description: <%= @book.description %></p>
 <br>
+
+<h3>Add this to my shelf:</h3>
+<% form_tag  %>
+<p><%= button_to %></p>
+
 <h3>Others Who Can Swap This:</h3>
 
 <% if @book.potential_swappers.empty? %>
-<p>Looks like no one is can swap this</p>
+    <p>Looks like no one is can swap this</p>
 <% else %>
-<ul>
-<% @book.potential_swappers.each do |swapper| %>
-    <li><%= link_to swapper.name, swapper %></li>
-<% end %>
-</ul>
+    <ul>
+    <% @book.potential_swappers.each do |swapper| %>
+        <li><%= link_to swapper.name, swapper %></li>
+    <% end %>
+    </ul>
 <% end %>

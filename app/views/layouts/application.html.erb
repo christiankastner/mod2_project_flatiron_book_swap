@@ -11,8 +11,7 @@
 
   <body>
   <% if session[:user_id] %>
-  <p>Logged in as: <%= User.find(session[:user_id]).name %> <%= button_to "Log out", logout_path %></p>
-
+  Logged in as: <%= User.all.find(session[:user_id]).username %> <%= button_to "Profile", user_path(session[:user_id]), method: :get %> <%= button_to "Log out", logout_path %>
   <% else %>
   <p><%= button_to "Log in", login_path, method: :get %></p>
   <% end %>

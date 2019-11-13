@@ -1,4 +1,7 @@
 <h1>Log in</h1>
+<% if flash[:message] %>
+<p>Attention: <%= flash[:message] %></p>
+<% end %>
 <%= form_tag "/login/authenticate" do |f| %>
 <label>Username: </label>
 <%= text_field_tag :'username' %>
