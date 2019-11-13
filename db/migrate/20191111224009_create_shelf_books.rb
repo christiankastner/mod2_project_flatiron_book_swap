@@ -3,6 +3,7 @@ class CreateShelfBooks < ActiveRecord::Migration[6.0]
     create_table :shelf_books do |t|
       t.integer :shelf_id
       t.integer :book_id
+      t.integer :shelf_type
 
       t.timestamps
     end

@@ -30,6 +30,7 @@ def seed_users
     end
 end
 
+seed_books
 seed_users
 
 

@@ -7,9 +7,10 @@ class Book < ApplicationRecord
     # end
 
     def potential_swappers
-        self.shelfs.map do |shelf|
-            shelf.user
-        end.reject { |item| item.nil? }
+        self.shelf_books.each do |shelf_book|
+            if shelf_book.shelf_type == 2 
+
+        end
     end
 
     def self.create_from_googlebooks(query)
