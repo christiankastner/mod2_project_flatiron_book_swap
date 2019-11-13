@@ -4,8 +4,17 @@ class BooksController < ApplicationController
     end
 
     def show 
-        @shelf = Shelf.new
+        @shelf_book = ShelfBook.new
         @book = Book.find(params[:id])
-        cookies[:book_viewed] = @book.id
     end
+
+    def new
+
+    end
+
+    def create
+
+    end
+
+
 end
