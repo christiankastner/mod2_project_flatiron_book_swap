@@ -9,7 +9,8 @@ class Book < ApplicationRecord
     def potential_swappers
         self.shelf_books.each do |shelf_book|
             if shelf_book.shelf_type == 2 
-
+                
+            end
         end
     end
 
