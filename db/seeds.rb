@@ -32,6 +32,8 @@ def seed_users
     end
 end
 
+seed_users
+
 # helen = User.find_by(email: "santino@grady.net")
 # rod = User.find_by(name: "Rod Runolfsdottir")
 # mice = Book.find(81)
