@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static#landing'
   resources :books, only: [:index, :show, :new, :create]
-  resources :shelves_books, only: [:create, :delete]
+  resources :shelves_books, only: [:create, :destroy]
   resources :users do
     resources :shelves
   end

@@ -24,6 +24,10 @@ class User < ApplicationRecord
         end
     end
 
+    def find_shelf_book(book)
+        self.shelf_books.detect {|shelf_book| shelf_book.book == book}
+    end
+
     # Takes in book classes and user class
     def swap_book(your_book, other_user, their_book)
         if public_shelf.include? your_book

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :supply_user, only: [:new]
+    before_action :find_user, only: [:edit, :update]
     before_action :check_current_user, only: [:show]
 
     def index
@@ -23,6 +24,14 @@ class UsersController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update  
+
     end
 
     private

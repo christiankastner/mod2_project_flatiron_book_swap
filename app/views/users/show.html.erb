@@ -1,6 +1,7 @@
 <% if @is_current_user %>
     <h1>My Profile!</h1>
     <p><%= button_to "Edit My Shelf", [@user, @user.shelf], method: :get %></p>
+    <p><%= button_to "Edit My Information", edit_user_path(@user), method: :get %></p>
 <% else %>
     <h1><%= @user.name %></h1>
 <% end %>
@@ -42,3 +43,7 @@
     <% end %>
 <% end %>
 </ul>
+
+<% if @is_current_user %>
+    <p><%= button_to "Delete My Profile", @user, method: :delete %></p>
+<% end %>

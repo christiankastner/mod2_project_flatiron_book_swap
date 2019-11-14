@@ -6,7 +6,12 @@ class ShelvesBooksController < ApplicationController
         @shelf_book.save
     end
 
-    def 
+    def destroy
+        @shelf_book = ShelfBook.find(params[:id])
+        @shelf = @shelf_book.shelf
+        @shelf_book.delete
+        redirect_to [@shelf.user, @shelf]
+    end
 
     def swap
 
