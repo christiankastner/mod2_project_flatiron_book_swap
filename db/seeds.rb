@@ -21,7 +21,6 @@ end
 def seed_users
     User.destroy_all
     Shelf.destroy_all
-    ShelfBook.delete_all
 
     (0..10).each do 
         @user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
@@ -32,13 +31,14 @@ def seed_users
     end
 end
 
+seed_books
 
-franz = User.find(38)
-brady = User.find(44)
-hunger = Book.find(164)
-orwell = Book.find(115)
+# franz = User.find(38)
+# brady = User.find(44)
+# hunger = Book.find(164)
+# orwell = Book.find(115)
 
-request = Request.new(swapper: franz.find_shelf_book(orwell), swappee: brady.find_shelf_book(orwell), status: false)
+# request = Request.new(swapper: franz.find_shelf_book(orwell), swappee: brady.find_shelf_book(orwell), status: false)
 
-binding.pry
-0
+# binding.pry
+# 0
