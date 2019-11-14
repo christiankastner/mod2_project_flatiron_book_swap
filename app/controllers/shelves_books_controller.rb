@@ -7,7 +7,7 @@ class ShelvesBooksController < ApplicationController
     end
 
     def swap
-        
+
     end
 
     private

@@ -2,7 +2,7 @@
 <% if flash[:message] %>
 <p>Attention: <%= flash[:message] %></p>
 <% end %>
-<%= form_tag "/login/authenticate" do |f| %>
+<%= form_tag login_authenticate_path do |f| %>
 <label>Username: </label>
 <%= text_field_tag :'username' %>
 <br>

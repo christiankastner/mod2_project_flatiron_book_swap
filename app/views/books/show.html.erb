@@ -29,7 +29,7 @@
 <h3>Others Who Can Swap This:</h3>
 
 <% if @book.potential_swappers.empty? %>
-    <p>Looks like no one is can swap this</p>
+    <p>Looks like no one can swap this</p>
 <% else %>
     <ul>
     <% @book.potential_swappers.each do |swapper| %>
