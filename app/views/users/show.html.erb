@@ -33,9 +33,8 @@
         <li>
         <%= form_tag shelves_books_swap_path do %>
             <label>Book to give: </label>
-            <%= collection_select :book, :book_id, User.find(session[:user_id]).public_shelf, :id, :title %>
-            <%= hidden_field :shelf_book1, :, value: book.id %>
-            <%= hidden_field :shelf_book2, :shelf_type, value: 0 %>
+            <%= collection_select :shelf_book, :value, User.find(session[:user_id]).public_shelf_books, :id, :book_title %>
+            <%= hidden_field :shelf_book2, value: book.find_shelf_book(@user).id %>
             <%= submit_tag "SWAP THEM" %>
         <% end %> 
         </li>

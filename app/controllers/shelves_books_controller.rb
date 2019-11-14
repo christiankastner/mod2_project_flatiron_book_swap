@@ -14,11 +14,18 @@ class ShelvesBooksController < ApplicationController
     end
 
     def swap
-        
+        ShelfBook.swap(swap_params)
     end
 
     private
     def shelf_book_params
         params.require(:shelf_book).permit(:shelf_type, :book_id)
+    end
+
+    def swap_params
+        {
+            swap_one: ShelfBook.find(params[:shelf_book][:value]),
+            swap_two: ShelfBook.find(params[:shelf_book2].keys.first.scan(/\d/).join(''))
+        }
     end
 end

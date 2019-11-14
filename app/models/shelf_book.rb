@@ -4,16 +4,24 @@ class ShelfBook < ApplicationRecord
     belongs_to :shelf 
     belongs_to :book
 
-    def self.swap(shelf_book_one, shelf_book_two)
-        shelf_one = shelf_book_one.shelf_id 
+    def book_title
+        self.book.title
+    end
 
-        shelf_book_one.shelf_id = shelf_book_two.shelf_id
-        shelf_book_one.shelf_type = 1
-        shelf_book_one.save
+    def self
+        self
+    end
 
-        shelf_book_two.shelf_id = shelf_one
-        shelf_book_two.shelf_type = 1
-        shelf_book_two.save
+    def self.swap(swap_one: swap_one, swap_two: swap_two)
+        shelf_one = swap_one.shelf_id 
+
+        swap_one.shelf_id = swap_two.shelf_id
+        swap_one.shelf_type = 1
+        swap_one.save
+
+        swap_two.shelf_id = shelf_one
+        swap_two.shelf_type = 1
+        swap_two.save
         
     end
 

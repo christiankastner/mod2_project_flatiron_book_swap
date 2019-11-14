@@ -1,7 +1,6 @@
 class Book < ApplicationRecord
     has_many :shelf_books
     has_many :shelfs, through: :shelf_books
-    has_many :active_relationships
 
     # def search_by_title(title)
     #     books = GoogleBooks.search(title)
@@ -15,6 +14,10 @@ class Book < ApplicationRecord
             end
         end
         swappers
+    end
+
+    def find_shelf_book(user)
+        self.shelf_books.detect {|shelf_book| shelf_book.shelf.user == user}
     end
 
     def self.create_from_googlebooks(query)

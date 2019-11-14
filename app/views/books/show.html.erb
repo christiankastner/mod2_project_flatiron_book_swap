@@ -32,7 +32,7 @@
     <p>Looks like no one can swap this</p>
 <% else %>
     <ul>
-    <% @book.potential_swappers.each do |swapper| %>
+    <% @book.potential_swappers.uniq.each do |swapper| %>
         <li><%= link_to swapper.name, swapper %></li>
     <% end %>
     </ul>
