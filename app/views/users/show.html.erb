@@ -1,5 +1,6 @@
 <% if @is_current_user %>
     <h1>My Profile!</h1>
+    <p><%= button_to "Edit My Shelf", [@user, @user.shelf], method: :get %></p>
 <% else %>
     <h1><%= @user.name %></h1>
 <% end %>

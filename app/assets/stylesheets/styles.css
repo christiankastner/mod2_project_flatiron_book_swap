@@ -1,0 +1,32 @@
+.main {
+    background-color: #345fa8;
+    background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+    padding: 20px;
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 1000px;
+    margin: 0 auto;
+
+}
+
+.title {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.list {
+    background-color: #ebebeb;
+    background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+    border: 1px black solid;
+    padding: 10px;
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px; */
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.img-border {
+    border: 1px black solid;
+}

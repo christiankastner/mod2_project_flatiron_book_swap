@@ -1,2 +1,21 @@
 <h1>My Shelves</h1>
+<br>
+<h3>Desired Books:</h3>
+<ul>
+    <% @user.desired_shelf.each do |book| %>
+        <li><%= link_to book.title, book %> <%= button_to "Delete", shelves_books, method: :delete %></li>
+    <% end %>
+</ul>
 
+<h3>My Private Books:</h3>
+<ul>
+    <% @user.private_shelf.each do |book| %>
+        <li><%= link_to book.title, book %> <%= button_to "Delete", book, method: :delete %></li>
+    <% end %>
+</ul>
+<h3>Swap Shelf: </h3>
+<ul>
+<% @user.public_shelf.each do |book| %>
+    <li><%= link_to book.title, book %> <%= button_to "Delete", book, method: :delete %></li>
+<% end %>
+</ul>

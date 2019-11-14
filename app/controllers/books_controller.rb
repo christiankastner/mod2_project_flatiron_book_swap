@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
     def index
-        @books = Book.all
+        @books = Book.all.filter do |book|
+            book.image_link and book.potential_swappers.length > 0
+        end
     end
 
     def show 

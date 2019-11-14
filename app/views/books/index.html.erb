@@ -1,11 +1,25 @@
-<h1>All Books to Swap</h1>
+<div class="main">
+    <div class="title">
+        <h1>All Books to Swap</h1>
+    <div>
 
-<ul>
-<h3>Avaliable Books to Borrow</h3>
-<% @books.each do |book| %>
-    <li><%= link_to book.title, book %>, has <%= pluralize book.potential_swappers.length, 'Swapper' %></li>
-<% end %>
-</ul>
+    <div class="title">
+    <h3>Avaliable Books to Borrow</h3>
+    </div>
 
-<h3>Don't see one you want?</h3>
-<%= link_to "Add to the swapping collection", new_book_path %>
+    <% @books.each do |book| %>
+        <div class="list">
+        <%= image_tag book.image_link, class: "img-border" %>
+
+        <p>        <%= link_to book.title, book %> 
+        by <%= book.author %>
+        has <%= pluralize book.potential_swappers.length, 'Swapper' %> </p>
+        
+            </div>
+    <% end %>
+
+    <div class="section">
+    <h3>Don't see one you want?</h3>
+    <%= link_to "Add to the swapping collection", new_book_path %>
+    </div>
+</div>
