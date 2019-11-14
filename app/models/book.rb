@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
     has_many :shelf_books
     has_many :shelfs, through: :shelf_books
+    has_many :active_relationships
 
     # def search_by_title(title)
     #     books = GoogleBooks.search(title)
