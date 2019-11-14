@@ -1,6 +1,4 @@
 <h1>All Books to Swap</h1>
-<h3>Don't see one you want?</h3>
-<%= link_to "Add to the swapping collection", new_book_path %>
 
 <ul>
 <h3>Avaliable Books to Borrow</h3>
@@ -8,3 +6,6 @@
     <li><%= link_to book.title, book %>, has <%= pluralize book.potential_swappers.length, 'Swapper' %></li>
 <% end %>
 </ul>
+
+<h3>Don't see one you want?</h3>
+<%= link_to "Add to the swapping collection", new_book_path %>

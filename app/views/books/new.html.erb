@@ -1,2 +1,16 @@
 <h1>Search for a book using Google Books</h1>
-<%= form_tag  %>
+<%= form_tag  new_book_path, method: :get do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<% if @books %>
+<ul>
+<% @books.each do |book| %>
+    <li><%= book.title %></li>
+    <uL>
+        <li>Add to library</li>
+    </uL>
+<% end %>
+</ul>
+<% end %>

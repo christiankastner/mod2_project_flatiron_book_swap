@@ -9,6 +9,9 @@ class BooksController < ApplicationController
     end
 
     def new
+        if params[:search]
+            @books = GoogleBooks.search(params[:search]).to_a[0..10]
+        end
     end
 
     def create
