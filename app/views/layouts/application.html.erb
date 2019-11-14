@@ -11,10 +11,10 @@
 
   <body>
   <% if session[:user_id] %>
-  Logged in as: <%= User.all.find(session[:user_id]).username %> <%= button_to "Profile", user_path(session[:user_id]), method: :get %> <%= button_to "Log out", logout_path %>
-  <%= link_to "See all avaliable books", books_path %>
+    Logged in as: <%= User.all.find(session[:user_id]).username %> <%= button_to "Profile", user_path(session[:user_id]), method: :get %> <%= button_to "Log out", logout_path %> 
+    <%= link_to "See all avaliable books", books_path %>
   <% else %>
-  <p><%= button_to "Log in", login_path, method: :get %></p>
+    <p><%= button_to "Log in", login_path, method: :get %></p>
   <% end %>
     <%= yield %>
   </body>

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     before_action :supply_user, only: [:new]
-    before_action :find_user, only: [:edit, :update]
+    before_action :find_user, only: [:edit, :update, :destroy]
     before_action :check_current_user, only: [:show]
+    has_many :passive_relationships, through: :shelf_books
 
     def index
         @users = User.all
@@ -36,6 +37,14 @@ class UsersController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @user.shelf.destroy
+        @user.destroy
+        session[:user_id] = @user.id
+        session[:shelf_id] = @shelf.id
+        redirect_to root_path
     end
 
     private

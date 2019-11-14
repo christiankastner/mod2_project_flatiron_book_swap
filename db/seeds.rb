@@ -19,9 +19,9 @@ def seed_books
 end
 
 def seed_users
-    # User.destroy_all
-    # Shelf.destroy_all
-    # ShelfBook.delete_all
+    User.destroy_all
+    Shelf.destroy_all
+    ShelfBook.delete_all
 
     (0..10).each do 
         @user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
@@ -32,11 +32,13 @@ def seed_users
     end
 end
 
-# helen = User.find_by(email: "santino@grady.net")
-# rod = User.find_by(name: "Rod Runolfsdottir")
-# mice = Book.find(81)
-# orwell = Book.find(64)
 
-# helen.swap_book(orwell, rod, mice)
+franz = User.find(38)
+brady = User.find(44)
+hunger = Book.find(164)
+orwell = Book.find(115)
 
+request = Request.new(swapper: franz.find_shelf_book(orwell), swappee: brady.find_shelf_book(orwell), status: false)
 
+binding.pry
+0
