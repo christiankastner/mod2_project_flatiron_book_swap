@@ -6,6 +6,10 @@ class ShelvesBooksController < ApplicationController
         @shelf_book.save
     end
 
+    def swap
+        
+    end
+
     private
     def shelf_book_params
         params.require(:shelf_book).permit(:shelf_type, :book_id)

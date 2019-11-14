@@ -1,9 +1,6 @@
-<h1>All Books</h1>
-<h3>Search By Book:</h3>
-<%= form_tag  books_path, method: :get do %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search" %>
-<% end %>
+<h1>All Books to Swap</h1>
+<h3>Don't see one you want?</h3>
+<%= link_to "Add to the swapping collection", new_book_path %>
 
 <ul>
 <h3>Avaliable Books to Borrow</h3>

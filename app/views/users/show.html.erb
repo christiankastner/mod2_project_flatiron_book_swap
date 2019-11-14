@@ -21,19 +21,20 @@
     </ul>
 <% end %>
 
-<h3>Swap Shelf:</h3>
+<h3>Swap Shelf: </h3>
 <ul>
 <% @user.public_shelf.each do |book| %>
     <li><%= link_to book.title, book %> </li>
-    <% if @is_current_user %>
+    <% if session[:user_id] %>
     <ul>
         <li>Wanna steal their book and give one of yours?</li>
         <li>
-        <%= form_tag shelves_books_path do %>
-            <%= collection_select :book, :book_id, @user.public_shelf, :id, :title %>
-            <%= hidden_field :shelf_book, :book_id, value: @book.id %>
-            <%= hidden_field :shelf_book, :shelf_type, value: 2 %>
-            <%= submit_tag "STEAL IT" %>
+        <%= form_tag shelves_books_swap_path do %>
+            <label>Book to give: </label>
+            <%= collection_select :book, :book_id, User.find(session[:user_id]).public_shelf, :id, :title %>
+            <%= hidden_field :book, :book_id, value: book.id %>
+            <%= hidden_field :shelf_book, :shelf_type, value: 0 %>
+            <%= submit_tag "SWAP THEM" %>
         <% end %> 
         </li>
     </ul>

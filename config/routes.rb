@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'static#landing'
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show, :new, :create]
   resources :shelves_books, only: [:create]
   resources :users do
     resources :shelves
   end
-  
+
+  post '/books/new/search', to: 'books#search'
+  post '/shelves_books/swap', to: 'shelves_books#swap'
   get '/login', to: 'access#login'
   post 'login/authenticate', to: 'access#create'
   post 'logout', to: 'access#logout'
