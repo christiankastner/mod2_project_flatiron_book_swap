@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  swapper: 1
+  swappee: 1
+  swapper_book_id: 1
+  swappee_book_id: 1
+  status: false
+
+two:
+  swapper: 1
+  swappee: 1
+  swapper_book_id: 1
+  swappee_book_id: 1
+  status: false

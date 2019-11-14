@@ -27,16 +27,24 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
     end
 
     def update  
-
+        @user.assign_attributes(user_params)
+        if @user.save
+            redirect_to @user
+        else
+            render :edit
+        end
     end
 
     private
     def supply_user
         @user = User.new
+    end
+
+    def find_user
+        @user = User.find(params[:id])
     end
 
     def user_params
