@@ -1,7 +1,11 @@
 class ShelfBook < ApplicationRecord
     # Validation to force shelf_type?
     validates :shelf_type, presence: true
-    belongs_to :shelf 
+    has_many :active_relationships, class_name: "Request", foreign_key: :swapper_shelf_book_id, dependent: :destroy
+    has_many :swappees, through: :active_relationships, source: :swappee
+    has_many :passive_relationships, class_name: "Request", foreign_key: :swapper_shelf_book_id, dependent: :destroy
+    has_many :swappers, through: :passive_relationships, source: :swapper
+    belongs_to :shelf
     belongs_to :book
 
     def book_title

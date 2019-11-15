@@ -14,14 +14,16 @@
         <table border="0">
             <td>
                 <p class="book">
-                    <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    <% if book.image_link %>
+                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    <% end %>
                 </p>
             </td>
             <td>
                 <p class="book">
                     <%= link_to book.title, book %> 
                     by <%= book.author %> <br>
-                    has <%= pluralize book.potential_swappers.length, 'Swapper' %> 
+                    has <%= pluralize book.potential_swappers.length, 'Swapper' %> <br>
                     <i>Description:</i> <%= book.display_description %>
                 </p>
             </td>
@@ -46,7 +48,7 @@
                 <td>
                     <p class="book">
                         <%= link_to book.title, book %> 
-                        by <%= book.author %>
+                        by <%= book.author %> <br>
                         <i>Description:</i> <%= book.display_description %>
                     </p>
                 </td>
