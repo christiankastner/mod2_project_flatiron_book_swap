@@ -16,12 +16,12 @@
                 <td>
                     <p class="book">
                         <%= link_to book.title, book %> 
-                        by <%= book.author %>
-                        has <%= pluralize book.potential_swappers.length, 'Swapper' %> 
+                        by <%= book.author %><br>
+                        has <%= pluralize book.potential_swappers.length, 'Swapper' %><br>
                         <i>Description:</i> <%= book.display_description %>
                     </p>
                 </td>
-                </table>
+            </table>
             </div>
         </div>
     <% end %>

@@ -5,8 +5,10 @@
         <div class="list">
             <table border="0">
                 <td>
-                    <p class="book">
+                    <p>
+                        <% if book.image_link %>
                         <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                        <% end %>
                     </p>
                 </td>
                 <td>
@@ -22,12 +24,15 @@
         <div class="list">
             <table border="0">
                 <td>
-                    <p class="book">
+                    <p>
+                       <% if book.image_link %>
                         <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                        <% end %>
                     </p>
                 </td>
                 <td>
-                    <%= link_to book.title, book %>
+                    <%= link_to book.title, book %> <br>
+                    <%= button_to "Make Public", shelves_book_path(@user.find_shelf_book(book)), method: :patch %> <br>
                     <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %>
                 </td>
             </table>
@@ -39,8 +44,10 @@
     <div class="list">
             <table border="0">
                 <td>
-                    <p class="book">
+                    <p>
+                        <% if book.image_link %>
                         <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                        <% end %>
                     </p>
                 </td>
                 <td>
