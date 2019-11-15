@@ -7,15 +7,21 @@
     <% @books.each do |book| %>
         <div class="list">
             <div>
-            <p class="book">
-                <%= link_to book.title, book %> 
-                by <%= book.author %>
-                has <%= pluralize book.potential_swappers.length, 'Swapper' %> 
-                <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
-            </p>
-            <p class="book">
-            <i>Description:</i> <%= book.display_description %>
-            </p>
+            <table border="0">
+                <td>
+                    <% if  book.image_link %>
+                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    <% end %>
+                </td>
+                <td>
+                    <p class="book">
+                        <%= link_to book.title, book %> 
+                        by <%= book.author %>
+                        has <%= pluralize book.potential_swappers.length, 'Swapper' %> 
+                        <i>Description:</i> <%= book.display_description %>
+                    </p>
+                </td>
+                </table>
             </div>
         </div>
     <% end %>

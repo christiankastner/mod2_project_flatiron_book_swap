@@ -1,21 +1,49 @@
 <h1>My Shelves</h1>
 <br>
 <h3>Desired Books:</h3>
-<div class="list">
     <% @user.desired_shelf.each do |book| %>
-        <li><%= link_to book.title, book %> <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %></li>
+        <div class="list">
+            <table border="0">
+                <td>
+                    <p class="book">
+                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    </p>
+                </td>
+                <td>
+                    <%= link_to book.title, book %>
+                    <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %>
+                </td>
+        </div>
     <% end %>
-</div>
 
 <h3>My Private Books:</h3>
-<div class="list">
     <% @user.private_shelf.each do |book| %>
-        <p><%= link_to book.title, book %> <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %></p>
+        <div class="list">
+            <table border="0">
+                <td>
+                    <p class="book">
+                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    </p>
+                </td>
+                <td>
+                    <%= link_to book.title, book %>
+                    <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %></<%=>
+                </td>
+        </div>
     <% end %>
-</div>
+
 <h3>Swap Shelf: </h3>
-<div class="list">
 <% @user.public_shelf.each do |book| %>
-    <li><%= link_to book.title, book %> <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %></li>
+    <div class="list">
+            <table border="0">
+                <td>
+                    <p class="book">
+                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    </p>
+                </td>
+                <td>
+                    <%= link_to book.title, book %>
+                    <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %>
+                </td>
+        </div>
 <% end %>
-</div>

@@ -3,22 +3,27 @@
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag "Search" %>
 <% end %>
-
+<br>
 <% if @books and @books != [] %>
-<div class="list">
-<% @books.each do |book| %>
-    <% if  book.image_link %>
-        <%= image_tag book.image_link %>
+    <% @books.each do |book| %>
+        <div class="list">
+            <table border="0">
+                <td>
+                    <% if  book.image_link %>
+                        <%= image_tag book.image_link %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= book.title %>
+                    Author: <%= book.authors %>
+                    <%= form_for @book do |f| %>
+                        <%= f.hidden_field :title, value: book.title %>
+                        <%= f.hidden_field :author, value: book.authors %>
+                        <%= f.hidden_field :description, value: book.description %>
+                        <%= f.hidden_field :image_link, value: book.image_link %>
+                        <%= f.submit "More Info" %>
+                    <% end %>
+                </td>
+        </div>
     <% end %>
-        <%= book.title %>
-        Author: <%= book.authors %>
-        <%= form_for @book do |f| %>
-        <%= f.hidden_field :title, value: book.title %>
-        <%= f.hidden_field :author, value: book.authors %>
-        <%= f.hidden_field :description, value: book.description %>
-        <%= f.hidden_field :image_link, value: book.image_link %>
-        <%= f.submit "More Info" %>
-        <% end %>
-    <% end %>
-</div>
 <% end %>

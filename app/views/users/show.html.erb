@@ -8,24 +8,57 @@
 <p>Email: <%= @user.email %></p>
 <br>
 <h3>Desired Books:</h3>
-<div class="list">
-    <% @user.desired_shelf.each do |book| %>
-        <%= link_to book.title, book %>
-    <% end %>
-</div>
-
-<% if @is_current_user %>
-    <h3>My Private Books:</h3>
+<% @user.desired_shelf.each do |book| %>
     <div class="list">
-        <% @user.private_shelf.each do |book| %>
-            <%= link_to book.title, book %>
-        <% end %>
+        <div>
+        <table border="0">
+            <td>
+                <p class="book">
+                    <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                </p>
+            </td>
+            <td>
+                <p class="book">
+                    <%= link_to book.title, book %> 
+                    by <%= book.author %>
+                    has <%= pluralize book.potential_swappers.length, 'Swapper' %> 
+                    <i>Description:</i> <%= book.display_description %>
+                </p>
+            </td>
+            </table>
+        </div>
     </div>
 <% end %>
 
+<% if @is_current_user %>
+    <h3>My Private Books:</h3>
+    <% @user.private_shelf.each do |book| %>
+        <div class="list">
+            <div>
+            <table border="0">
+                <td>
+                    <p class="book">
+                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                    </p>
+                </td>
+                <td>
+                    <p class="book">
+                        <%= link_to book.title, book %> 
+                        by <%= book.author %>
+                        <i>Description:</i> <%= book.display_description %>
+                    </p>
+                </td>
+                </table>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+
 <h3>Swap Shelf: </h3>
-<div class="list">
 <% @user.public_shelf.each do |book| %>
+<div class="list">
+    <table border="0">
+        <td>
     <%= link_to book.title, book %>
     <% if session[:user_id] and !@is_current_user %>
         Wanna steal their book and give one of yours?
@@ -36,8 +69,10 @@
             <%= submit_tag "SWAP THEM" %>
         <% end %> 
     <% end %>
-<% end %>
+    </table>
 </div>
+<% end %>
+
 
 <% if @is_current_user %>
     <p><%= button_to "Delete My Profile", @user, method: :delete %></p>
