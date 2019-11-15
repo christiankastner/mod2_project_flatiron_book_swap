@@ -8,14 +8,18 @@ class ShelfBook < ApplicationRecord
     belongs_to :shelf
     belongs_to :book
 
+    # For shortening dot chaining
     def book_title
         self.book.title
     end
 
+    # Collection select gave problems without this method call
     def self
         self
     end
 
+    # The logic for swapping books for users. Just needs two shelf_book class instances and uses mass assignment for 
+    # ease of reading params in form submition
     def self.swap(swap_one: swap_one, swap_two: swap_two)
         shelf_one = swap_one.shelf_id 
 
@@ -26,7 +30,5 @@ class ShelfBook < ApplicationRecord
         swap_two.shelf_id = shelf_one
         swap_two.shelf_type = 1
         swap_two.save
-        
     end
-
 end

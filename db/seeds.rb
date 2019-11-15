@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
+# This seeds the database with books for testing
 def seed_books
-    Book.delete_all
+    Book.destroy_all
 
     Book.create_from_googlebooks("Unbearable Lightness of Being")
     Book.create_from_googlebooks("Of Human Bondage")
@@ -18,10 +18,11 @@ def seed_books
     Book.create_from_txt("./db/titles.txt")
 end
 
+# This seeds the database with users for testing. Expected to be run after seeding books so that user shelves can be
+# populated
 def seed_users
     User.destroy_all
     Shelf.destroy_all
-    ShelfBook.delete_all
 
     (0..10).each do 
         @user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
