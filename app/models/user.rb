@@ -6,28 +6,33 @@ class User < ApplicationRecord
     has_many :shelf_books, through: :shelf
     has_many :books, through: :shelf_books
 
+    # For accessing books that are public
     def public_shelf
         self.shelf_books.where("shelf_type = ?", "2").map do |shelf_book|
             shelf_book.book
         end
     end
 
+    # For accessing books that are private
     def private_shelf
         self.shelf_books.where("shelf_type = ?", "1").map do |shelf_book|
             shelf_book.book
         end
     end
 
+    # For accessing books shelf_book joiners that are desired
     def desired_shelf
         self.shelf_books.where("shelf_type = ?", "0").map do |shelf_book|
             shelf_book.book
         end
     end
 
+    # Returns a shelf_book given the book instance
     def find_shelf_book(book)
         self.shelf_books.detect {|shelf_book| shelf_book.book == book}
     end
 
+     # For accessing books shelf_book joiners that are public
     def public_shelf_books
         self.shelf_books.where("shelf_type = ?", "2")
     end
