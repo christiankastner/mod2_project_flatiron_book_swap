@@ -20,7 +20,7 @@
             <td>
                 <p class="book">
                     <%= link_to book.title, book %> 
-                    by <%= book.author %>
+                    by <%= book.author %> <br>
                     has <%= pluralize book.potential_swappers.length, 'Swapper' %> 
                     <i>Description:</i> <%= book.display_description %>
                 </p>
@@ -37,9 +37,11 @@
             <div>
             <table border="0">
                 <td>
-                    <p class="book">
-                        <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
-                    </p>
+                    <% if book.image_link %>
+                        <p class="book">
+                            <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                        </p>
+                    <% end %>
                 </td>
                 <td>
                     <p class="book">
@@ -59,16 +61,24 @@
 <div class="list">
     <table border="0">
         <td>
-    <%= link_to book.title, book %>
-    <% if session[:user_id] and !@is_current_user %>
-        Wanna steal their book and give one of yours?
-        <%= form_tag shelves_books_swap_path do %>
-            <label>Book to give: </label>
-            <%= collection_select :shelf_book, :value, User.find(session[:user_id]).public_shelf_books, :id, :book_title %>
-            <%= hidden_field :shelf_book2, value: book.find_shelf_book(@user).id %>
-            <%= submit_tag "SWAP THEM" %>
-        <% end %> 
-    <% end %>
+            <% if book.image_link %>
+                <p class="book">
+                    <%= link_to(image_tag(book.image_link, class: "img-border"), book) %>
+                </p>
+            <% end %>
+        </td>
+        <td>
+            <%= link_to book.title, book %>
+            <% if session[:user_id] and !@is_current_user %>
+                Wanna steal their book and give one of yours?
+                <%= form_tag shelves_books_swap_path do %>
+                    <label>Book to give: </label>
+                    <%= collection_select :shelf_book, :value, User.find(session[:user_id]).public_shelf_books, :id, :book_title %>
+                    <%= hidden_field :shelf_book2, value: book.find_shelf_book(@user).id %>
+                    <%= submit_tag "SWAP THEM" %>
+                <% end %> 
+            <% end %>
+        </td>
     </table>
 </div>
 <% end %>

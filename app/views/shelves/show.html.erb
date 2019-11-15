@@ -13,6 +13,7 @@
                     <%= link_to book.title, book %>
                     <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %>
                 </td>
+            </table>
         </div>
     <% end %>
 
@@ -27,8 +28,9 @@
                 </td>
                 <td>
                     <%= link_to book.title, book %>
-                    <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %></<%=>
+                    <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %>
                 </td>
+            </table>
         </div>
     <% end %>
 
@@ -45,5 +47,6 @@
                     <%= link_to book.title, book %>
                     <%= button_to "Delete", shelves_book_path(@user.find_shelf_book(book)), method: :delete %>
                 </td>
+            </table>
         </div>
 <% end %>
