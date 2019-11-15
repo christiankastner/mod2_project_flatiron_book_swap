@@ -1,30 +1,56 @@
-.main {
-    background-color: #345fa8;
+body {
+    background-color: #ffeeeb;
     background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
     padding: 20px;
     margin: 0 auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 1000px;
     margin: 0 auto;
+}
 
+.main {
+    background-color: white;
+    padding: 15px;
+}
+
+.display {
+    padding: 20px;
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .title {
     font-size: 15px;
-    color: rgb(255, 255, 255);
+    color: rgb(41, 36, 36);
 }
 
 .list {
-    background-color: #ebebeb;
+    background-color: #ffffffb9;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
     background-image: url("https://www.transparenttextures.com/patterns/arches.png");
     border: 1px black solid;
-    padding: 10px;
+    padding: 20px;
     /* display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px; */
     justify-content: center;
     margin: 0 auto;
+    margin-bottom: 5px;
     text-align: center;
+    border-radius: 25px;
+}
+
+.search {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.book {
+    flex: 50%;
 }
 
 .img-border {
@@ -36,7 +62,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(233, 222, 222);
   }
   
   li {
@@ -53,5 +79,5 @@ ul {
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
-    background-color: #111;
+    background-color: rgb(177, 61, 61);
   }

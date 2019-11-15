@@ -20,6 +20,17 @@ class Book < ApplicationRecord
         self.shelf_books.detect {|shelf_book| shelf_book.shelf.user == user}
     end
 
+    def display_description
+        if description == nil
+            return "No description available"
+        end
+        if description.length > 250
+            return "#{description[0..249]}..."
+        else
+            return description
+        end
+    end
+
     def self.create_from_googlebooks(query)
         book = GoogleBooks.search(query).first
         if book

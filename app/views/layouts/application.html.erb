@@ -10,12 +10,26 @@
   </head>
 
   <body>
-  <% if session[:user_id] %>
-  Logged in as: <%= User.all.find(session[:user_id]).username %> <%= button_to "Profile", user_path(session[:user_id]), method: :get %> <%= button_to "Log out", logout_path %>
-  <%= link_to "See all avaliable books", books_path %>
-  <% else %>
-  <p><%= button_to "Log in", login_path, method: :get %></p>
-  <% end %>
-    <%= yield %>
+
+  <div class="main">
+    <ul>
+      <div class="display">
+      <li><%= link_to 'Books', books_path %></li>
+      <li><%= link_to 'Search Books', new_book_path %></li>
+      <li><%= link_to 'Swappers', users_path %></li>
+      <% if session[:user_id] %>
+        <li><%= link_to "Profile", user_path(session[:user_id]) %></li>
+        <li><%= link_to "Log out", logout_path, method: :post, style: "float:right" %></li>
+      <% else %>
+        <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+    </ul>
+      <%= yield %>
+      <% if session[:user_id] %>
+        <p>Logged in as: <%= User.all.find(session[:user_id]).username %></p>
+      <% end %>
+      </div>
+    </div>
   </body>
+
 </html>

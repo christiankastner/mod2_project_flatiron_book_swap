@@ -8,40 +8,36 @@
 <p>Email: <%= @user.email %></p>
 <br>
 <h3>Desired Books:</h3>
-<ul>
+<div class="list">
     <% @user.desired_shelf.each do |book| %>
-        <li><%= link_to book.title, book %></li>
+        <%= link_to book.title, book %>
     <% end %>
-</ul>
+</div>
 
 <% if @is_current_user %>
     <h3>My Private Books:</h3>
-    <ul>
+    <div class="list">
         <% @user.private_shelf.each do |book| %>
-            <li><%= link_to book.title, book %></li>
+            <%= link_to book.title, book %>
         <% end %>
-    </ul>
+    </div>
 <% end %>
 
 <h3>Swap Shelf: </h3>
-<ul>
+<div class="list">
 <% @user.public_shelf.each do |book| %>
-    <li><%= link_to book.title, book %> </li>
+    <%= link_to book.title, book %>
     <% if session[:user_id] and !@is_current_user %>
-    <ul>
-        <li>Wanna steal their book and give one of yours?</li>
-        <li>
+        Wanna steal their book and give one of yours?
         <%= form_tag shelves_books_swap_path do %>
             <label>Book to give: </label>
             <%= collection_select :shelf_book, :value, User.find(session[:user_id]).public_shelf_books, :id, :book_title %>
             <%= hidden_field :shelf_book2, value: book.find_shelf_book(@user).id %>
             <%= submit_tag "SWAP THEM" %>
         <% end %> 
-        </li>
-    </ul>
     <% end %>
 <% end %>
-</ul>
+</div>
 
 <% if @is_current_user %>
     <p><%= button_to "Delete My Profile", @user, method: :delete %></p>

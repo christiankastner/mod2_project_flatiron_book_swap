@@ -1,9 +1,7 @@
 <h1>All Swappers</h1>
-<ul>
 <% @users.each do |user| %>
-    <li><%= link_to user.username, user %></li>
-    <ul>
-        <li>Has <%= pluralize user.public_shelf.length, "book" %> to swap</li>
-    </ul>
+    <div class="list">
+    <%= link_to user.username.titleize, user %>
+    Has <%= pluralize user.public_shelf.length, "book" %> to swap
+    </div>
 <% end %>
-</ul>

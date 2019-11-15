@@ -31,9 +31,9 @@
 <% if @book.potential_swappers.empty? %>
     <p>Looks like no one can swap this</p>
 <% else %>
-    <ul>
+    <div class="list">
     <% @book.potential_swappers.uniq.each do |swapper| %>
-        <li><%= link_to swapper.name, swapper %></li>
+        <%= link_to swapper.name, swapper %>
     <% end %>
-    </ul>
+    </div>
 <% end %>
